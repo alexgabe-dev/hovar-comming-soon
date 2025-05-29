@@ -71,10 +71,43 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "pulse-red": {
+          "0%, 100%": { 
+            boxShadow: "0 0 0 0 rgba(239, 68, 68, 0.7)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 8px 2px rgba(239, 68, 68, 0.5)",
+            transform: "scale(1.05)"
+          },
+        },
+        "pulse-yellow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 0 0 rgba(234, 179, 8, 0.7)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 8px 2px rgba(234, 179, 8, 0.5)",
+            transform: "scale(1.05)"
+          },
+        },
+        "pulse-gray": {
+          "0%, 100%": { 
+            boxShadow: "0 0 0 0 rgba(107, 114, 128, 0.7)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 8px 2px rgba(107, 114, 128, 0.5)",
+            transform: "scale(1.05)"
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-red": "pulse-red 2s ease-in-out infinite",
+        "pulse-yellow": "pulse-yellow 2s ease-in-out infinite",
+        "pulse-gray": "pulse-gray 2s ease-in-out infinite",
       },
     },
   },
