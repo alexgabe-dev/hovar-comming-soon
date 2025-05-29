@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-// @hidden-author: Alex Gabe (vizitor.hu)
+
+// Készítette: Gábor Sándor (vizitor.hu)
 export const metadata: Metadata = {
-  title: 'hovar-comming-soon',
-  description: 'Created by Alex Gabe - vizitor.hu',
+  title: 'Hóvár Egyesület',
+  description: 'Közösséget és élményeket teremtünk a Magyarországon élő kárpátaljaiak számára.',
+  authors: [{ name: 'Gábor Sándor' }],
+  creator: 'Gábor Sándor',
 }
 
 export default function RootLayout({
@@ -13,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="hu">
       <head>
         <link rel="icon" href="/favicon/hovar-logo.svg" type="image/svg+xml" />
       </head>
