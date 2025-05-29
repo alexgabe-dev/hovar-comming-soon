@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 
+// @hidden-author: Alex Gabe (vizitor.hu)
 export default function ComingSoonPage() {
   const [currentTime, setCurrentTime] = useState("")
 
@@ -41,17 +42,17 @@ export default function ComingSoonPage() {
         <section className="flex-1 flex flex-col items-center justify-center px-4 sm:px-8">
           <div className="w-full max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-2">
-              <div className="text-7xl sm:text-7xl md:text-9xl font-black">COMING SOON</div>
-              <div className="flex flex-wrap justify-center gap-4 mt-20 sm:mt-4">
-                <div className="flex items-center gap-2 text-sm sm:text-base">
+              <div className="text-8xl sm:text-7xl md:text-9xl font-black">COMING SOON</div>
+              <div className="flex flex-row flex-wrap justify-center gap-4 mt-20">
+                <div className="flex items-center gap-2 text-sm sm:text-base mt-16 sm:mt-0">
                   <span className="w-3 h-3 bg-red-500 inline-block" />
                   <span className="tracking-wider">FEJLESZTÉS_ALATT</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm sm:text-base">
+                <div className="hidden sm:flex items-center gap-2 text-sm sm:text-base">
                   <span className="w-3 h-3 bg-yellow-500 inline-block" />
                   <span className="tracking-wider">TERVEZÉSI_FÁZIS</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm sm:text-base opacity-70">
+                <div className="hidden sm:flex items-center gap-2 text-sm sm:text-base opacity-70">
                   <span className="w-3 h-3 bg-gray-500 inline-block" />
                   <span className="tracking-wider">2025_Q2</span>
                 </div>
@@ -62,7 +63,7 @@ export default function ComingSoonPage() {
 
         {/* Mission Section */}
         <section className="w-full max-w-3xl mx-auto text-center mt-8 px-4">
-          <div className="text-xs tracking-[0.3em] text-gray-400 mb-2">[KÜLDETÉS]</div>
+          <div className="text-xs tracking-[0.3em] text-gray-400 mb-2">[KÜLDETÉSÜNK]</div>
           <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light mb-2">
             LEGYEN EGY TALÁLKOZÁSI PONT A KÁRPÁTALJAI MAGYAROK SZÁMÁRA.
           </p>
@@ -84,9 +85,16 @@ export default function ComingSoonPage() {
         </div>
       </footer>
 
-      {/* Floating year (desktop only) */}
-      <div className="fixed top-1/2 right-8 transform -translate-y-1/2 text-[80px] sm:text-[120px] md:text-[200px] font-black opacity-5 pointer-events-none select-none">
-        2025
+      {/* Floating year: mobile bottom center, desktop right */}
+      <div>
+        {/* Mobil: háttér, jobb alsó sarok */}
+        <div className="block sm:hidden fixed right-4 bottom-4 text-[80px] font-black opacity-10 pointer-events-none select-none z-0">
+          2025
+        </div>
+        {/* Desktop: háttér, jobb oldal */}
+        <div className="hidden sm:block fixed top-1/2 right-8 transform -translate-y-1/2 text-[120px] md:text-[200px] font-black opacity-5 pointer-events-none select-none z-0">
+          2025
+        </div>
       </div>
     </div>
   )
