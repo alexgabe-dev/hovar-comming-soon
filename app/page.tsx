@@ -1,0 +1,93 @@
+"use client"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+
+export default function ComingSoonPage() {
+  const [currentTime, setCurrentTime] = useState("")
+
+  useEffect(() => {
+    setCurrentTime(new Date().toLocaleTimeString("hu-HU"))
+    const timer = setInterval(() => setCurrentTime(new Date().toLocaleTimeString("hu-HU")), 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-black text-white font-mono flex flex-col">
+      {/* Header */}
+      <header className="w-full bg-black border-b border-white fixed top-0 left-0 z-50">
+        <div className="max-w-6xl mx-auto flex items-center justify-between h-14 sm:h-16 px-4 sm:px-8">
+          <span className="text-xs sm:text-sm font-bold tracking-wider">HÓVÁR_EGYESÜLET</span>
+          <span className="text-[10px] sm:text-xs tracking-wider opacity-60">{currentTime} | BUDAPEST</span>
+        </div>
+      </header>
+
+      {/* Grid background */}
+      <div className="fixed inset-0 opacity-5 -z-10 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: "50px 50px",
+          }}
+        />
+      </div>
+
+      {/* Main content wrapper */}
+      <main className="flex-1 flex flex-col pt-16">
+        {/* Hero Section */}
+        <section className="flex-1 flex flex-col items-center justify-center px-4 sm:px-8">
+          <div className="w-full max-w-4xl mx-auto text-center space-y-8">
+            <div className="space-y-2">
+              <div className="text-7xl sm:text-7xl md:text-9xl font-black">COMING SOON</div>
+              <div className="flex flex-wrap justify-center gap-4 mt-20 sm:mt-4">
+                <div className="flex items-center gap-2 text-sm sm:text-base">
+                  <span className="w-3 h-3 bg-red-500 inline-block" />
+                  <span className="tracking-wider">FEJLESZTÉS_ALATT</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm sm:text-base">
+                  <span className="w-3 h-3 bg-yellow-500 inline-block" />
+                  <span className="tracking-wider">TERVEZÉSI_FÁZIS</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm sm:text-base opacity-70">
+                  <span className="w-3 h-3 bg-gray-500 inline-block" />
+                  <span className="tracking-wider">2025_Q2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mission Section */}
+        <section className="w-full max-w-3xl mx-auto text-center mt-8 px-4">
+          <div className="text-xs tracking-[0.3em] text-gray-400 mb-2">[KÜLDETÉS]</div>
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light mb-2">
+            LEGYEN EGY TALÁLKOZÁSI PONT A KÁRPÁTALJAI MAGYAROK SZÁMÁRA.
+          </p>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full border-t border-white bg-white text-black mt-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-8">
+          <div className="text-center">
+            <div className="font-bold tracking-wider mb-1 text-sm sm:text-base">KAPCSOLAT</div>
+            <div className="font-mono text-xs sm:text-sm break-all">info@hovar.hu</div>
+          </div>
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-black text-center">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6 text-[10px] sm:text-xs opacity-60">
+              <div className="font-mono tracking-wider">© 2025 HÓVÁR_EGYESÜLET</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Floating year (desktop only) */}
+      <div className="fixed top-1/2 right-8 transform -translate-y-1/2 text-[80px] sm:text-[120px] md:text-[200px] font-black opacity-5 pointer-events-none select-none">
+        2025
+      </div>
+    </div>
+  )
+}
