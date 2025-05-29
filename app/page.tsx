@@ -37,7 +37,7 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Main content wrapper */}
-      <main className="flex-1 flex flex-col pt-16 pb-40 sm:pb-0">
+      <main className="flex-1 flex flex-col pt-32 pb-40 sm:pb-0">
         {/* Hero Section */}
         <section className="flex-1 flex flex-col items-center justify-center px-4 sm:px-8">
           <div className="w-full max-w-4xl mx-auto text-center space-y-8">
