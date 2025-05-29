@@ -75,7 +75,16 @@ export default function ComingSoonPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-8">
           <div className="text-center">
             <div className="font-bold tracking-wider mb-1 text-sm sm:text-base">KAPCSOLAT</div>
-            <div className="font-mono text-xs sm:text-sm break-all">info@hovar.hu</div>
+            <a
+              href="mailto:info@hovar.hu"
+              className="font-mono text-xs sm:text-sm break-all relative transition-all duration-300 ease-out hover:text-red-500 hover:scale-105 focus-visible:outline-none group"
+            >
+              <span
+                className="relative z-10 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 after:ease-out group-hover:after:w-full group-hover:after:opacity-100 after:opacity-80"
+              >
+                info@hovar.hu
+              </span>
+            </a>
           </div>
           <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-black text-center">
             <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6 text-[10px] sm:text-xs opacity-60">
