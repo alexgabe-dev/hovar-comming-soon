@@ -101,8 +101,17 @@ export default function ComingSoonPage() {
       {/* Header - sticky top, brand + time display */}
       <header className="w-full bg-black border-b border-white fixed top-0 left-0 z-50">
         <div className="max-w-6xl mx-auto flex items-center justify-between h-14 sm:h-16 px-4 sm:px-8">
-          {/* brand name - responsive text size */}
-          <span className="text-xs sm:text-sm font-bold tracking-wider">HÓVÁR_EGYESÜLET</span>
+          {/* logo + brand name */}
+          <div className="flex items-center gap-3">
+            {/* logo */}
+            <img 
+              src="/logo/hovar-logo-new.svg" 
+              alt="HÓVÁR logo" 
+              className="w-8 h-8 sm:w-10 sm:h-10"
+            />
+            {/* brand name - responsive text size */}
+            <span className="text-xs sm:text-sm font-bold tracking-wider">HÓVÁR_EGYESÜLET</span>
+          </div>
           {/* live time + location - dynamic user city */}
           <div 
             className="flex items-center gap-2"
@@ -183,6 +192,14 @@ export default function ComingSoonPage() {
           <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light mb-2">
             LEGYEN EGY TALÁLKOZÁSI PONT A KÁRPÁTALJAI MAGYAROK SZÁMÁRA.
           </p>
+          {/* logo - csak mobilon, középen nagyban */}
+          <div className="block sm:hidden mt-8">
+            <img 
+              src="/logo/hovar-logo-new.svg" 
+              alt="HÓVÁR logo" 
+              className="w-32 h-32 mx-auto opacity-20"
+            />
+          </div>
         </section>
       </main>
 
