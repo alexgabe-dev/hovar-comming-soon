@@ -120,6 +120,15 @@ export const SocialButtons = () => {
              }}
            />
          </div>
+         
+         {/* Brutális hover bubble - csak PC-n */}
+         <div className="hidden sm:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none z-50 group-hover:translate-y-0 translate-y-2">
+           <div className="bg-black border-2 border-white px-3 py-2 font-mono text-xs tracking-wider whitespace-nowrap relative transform transition-all duration-500 ease-out group-hover:scale-100 scale-95 group-hover:rotate-0 rotate-1">
+             <span className="text-white transition-all duration-500 ease-out group-hover:text-white text-gray-300">CSATLAKOZZ ÉS LÉGY RÉSZESE KÖZÖSSÉGÜNKNEK!</span>
+             {/* Bubble nyíl - smooth animáció */}
+             <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white transition-all duration-500 ease-out group-hover:translate-y-0 translate-y-1"></div>
+           </div>
+         </div>
        </a>
     </div>
   )
