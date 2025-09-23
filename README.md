@@ -125,7 +125,7 @@ npm run build
 
 MIT License - Free for NGOs and non-commercial use.
 
-Copyright (c) 2025 Hóvár Association
+Copyright (c) 2025 Gábor Sándor - vizitor.hu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -152,3 +152,4 @@ SOFTWARE.
 ---
 
 *Made with ❤️ for the Transcarphatian Hungarian communities*
+
