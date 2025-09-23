@@ -1,21 +1,17 @@
 import { useState, useEffect } from 'react';
 
 export const TypewriterDots = () => {
-  // dots state - animált pontok száma
-  const [dots, setDots] = useState('');
+  const [dots, setDots] = useState(''); // animált pontok
 
   useEffect(() => {
-    // interval animáció - 500ms tick
     const interval = setInterval(() => {
       setDots(prev => {
-        // reset ha 3 pont - loop anim
-        if (prev.length >= 3) return '';
+        if (prev.length >= 3) return ''; // reset ha 3 pont
         return prev + '.';
       });
-    }, 500);
+    }, 500); // TODO: lehetne gyorsabb
 
-    // cleanup - no memory leak plz
-    return () => clearInterval(interval);
+    return () => clearInterval(interval); // cleanup
   }, []);
 
   return <span className="inline-block">{dots}</span>;

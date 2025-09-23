@@ -1,15 +1,13 @@
-/* @hidden-author: Alex Gabe (vizitor.hu) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
+  --foreground-rgb: 255, 255, 255; /* fehér szöveg */
+  --background-start-rgb: 0, 0, 0; /* fekete háttér */
   --background-end-rgb: 0, 0, 0;
 }
 
-/* Reset styles */
 *, *::before, *::after {
   box-sizing: border-box;
   padding: 0;
@@ -24,10 +22,10 @@ html {
 
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: hidden; /* horizontal scroll kikapcsolva */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; /* monospace font */
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,10 +36,10 @@ a {
   text-decoration: none;
 }
 
-/* Custom scrollbar - desktop only */
+/* desktop scrollbar */
 @media (min-width: 640px) {
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 8px; /* vékony scrollbar !tesztre! */
   }
 
   ::-webkit-scrollbar-track {
@@ -49,39 +47,38 @@ a {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: #fff; /* fehér thumb */
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #ccc;
+    background: #ccc; /* hover szürke */
   }
 }
 
-/* Hide scrollbar on mobile */
+/* mobile - scrollbar elrejtve */
 @media (max-width: 639px) {
   ::-webkit-scrollbar {
     display: none;
   }
   
-  /* For Firefox */
   html {
-    scrollbar-width: none;
+    scrollbar-width: none; /* firefox */
   }
 }
 
-/* Selection */
+/* szöveg kijelölés */
 ::selection {
   background: #fff;
-  color: #000;
+  color: #000; /* fehér háttér, fekete szöveg */
 }
 
-/* Custom pulse animations for status indicators - box shadow effect */
+/* pulzáló animációk a státoszkhoz */
 @keyframes pulse-red {
   0% {
-    box-shadow: 0 0 0 0 #ef4444;
+    box-shadow: 0 0 0 0 #ef4444; /* piros */
   }
   100% {
-    box-shadow: 0 0 0 8px #ef444400;
+    box-shadow: 0 0 0 8px #ef444400; /* átlátszó */
   }
 }
 
@@ -115,11 +112,11 @@ a {
   animation: pulse-gray 2.5s ease-in-out infinite !important;
 }
 
-/* Disable smooth scrolling for reduced motion */
+/* accessibility - csökkentett mozgás */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important; /* animációk kikapcsolva */
   }
 }
