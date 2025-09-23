@@ -13,6 +13,23 @@ const nextConfig = {
   },
   // enable compression
   compress: true,
+  // modern JavaScript optimization
+  experimental: {
+    // modern browsers only - no legacy polyfills
+    browsersListForSwc: true,
+    // optimize for modern browsers
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
+  // webpack optimization for modern browsers
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // modern browsers only - no legacy transforms
+      config.target = ['web', 'es2020']
+    }
+    return config
+  },
+  // transpile only for legacy browsers if needed
+  transpilePackages: [],
 }
 
 export default nextConfig

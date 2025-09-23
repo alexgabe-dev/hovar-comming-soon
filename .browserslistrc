@@ -1,0 +1,21 @@
+# Modern browsers only - no legacy support
+# This reduces bundle size by ~11 KiB as mentioned in Speed Insights
+
+# Modern browsers (last 2 versions)
+last 2 versions
+
+# Modern browsers with >0.2% usage
+> 0.2%
+
+# Not dead browsers
+not dead
+
+# Modern browsers only - no IE support
+not ie 11
+not ie_mob 11
+
+# Modern mobile browsers
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
