@@ -54,7 +54,7 @@ export default function ComingSoonPage() {
                 </div>
                 <div className="hidden sm:flex items-center gap-2 text-sm sm:text-base opacity-70">
                   <span className="w-3 h-3 bg-gray-500 inline-block rounded-sm animate-pulse-gray" />
-                  <span className="tracking-wider">2025_Q2</span>
+                  <span className="tracking-wider">2025_Q3</span>
                 </div>
               </div>
             </div>
