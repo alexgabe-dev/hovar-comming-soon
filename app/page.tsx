@@ -12,6 +12,8 @@ export default function ComingSoonPage() {
   const [userTimezone, setUserTimezone] = useState("Europe/Budapest") // fallback default
   // loading state - location detection
   const [isLocationLoading, setIsLocationLoading] = useState(true)
+  // hover state for refresh button
+  const [isHoveringLocation, setIsHoveringLocation] = useState(false)
   // cache refresh function
   const refreshLocation = () => {
     localStorage.removeItem('userLocation')
@@ -102,15 +104,23 @@ export default function ComingSoonPage() {
           {/* brand name - responsive text size */}
           <span className="text-xs sm:text-sm font-bold tracking-wider">HÓVÁR_EGYESÜLET</span>
           {/* live time + location - dynamic user city */}
-          <div className="flex items-center gap-2">
+          <div 
+            className="flex items-center gap-2"
+            onMouseEnter={() => setIsHoveringLocation(true)}
+            onMouseLeave={() => setIsHoveringLocation(false)}
+          >
             <span className="text-[10px] sm:text-xs tracking-wider opacity-60">
               {currentTime} | {isLocationLoading ? "..." : userCity}
             </span>
-            {/* refresh button - csak desktop-on és akkor látható ha van város */}
+            {/* refresh button - hover animációval - csak akkor rendereljük ha van város */}
             {userCity && !isLocationLoading && (
               <button
                 onClick={refreshLocation}
-                className="hidden sm:block text-[8px] sm:text-[10px] opacity-40 hover:opacity-80 transition-opacity cursor-pointer"
+                className={`hidden sm:block text-[8px] sm:text-[10px] hover:opacity-80 transition-all duration-500 ease-out cursor-pointer transform ${
+                  isHoveringLocation 
+                    ? 'translate-x-0 opacity-70 scale-100' 
+                    : '-translate-x-6 opacity-0 scale-85 pointer-events-none'
+                }`}
                 title="Helymeghatározás frissítése"
               >
                 ↻
