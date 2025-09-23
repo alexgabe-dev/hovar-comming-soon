@@ -75,16 +75,16 @@ a {
 /* pulzáló animációk a státoszkhoz */
 @keyframes pulse-red {
   0% {
-    box-shadow: 0 0 0 0 #ef4444; /* piros */
+    box-shadow: 0 0 0 0 #ef4444; /* felesztés piros */
   }
   100% {
-    box-shadow: 0 0 0 8px #ef444400; /* átlátszó */
+    box-shadow: 0 0 0 8px #ef444400; 
   }
 }
 
 @keyframes pulse-yellow {
   0% {
-    box-shadow: 0 0 0 0 #eab308;
+    box-shadow: 0 0 0 0 #eab308; /* tervezés sárga */
   }
   100% {
     box-shadow: 0 0 0 8px #eab30800;
@@ -93,7 +93,7 @@ a {
 
 @keyframes pulse-gray {
   0% {
-    box-shadow: 0 0 0 0 #6b7280;
+    box-shadow: 0 0 0 0 #6b7280; /* quater szürke */
   }
   100% {
     box-shadow: 0 0 0 8px #6b728000;
@@ -112,7 +112,7 @@ a {
   animation: pulse-gray 2.5s ease-in-out infinite !important;
 }
 
-/* accessibility - csökkentett mozgás */
+/* accessibility görgetések */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

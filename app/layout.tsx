@@ -22,7 +22,7 @@ export default function RootLayout({
         {children}
         <script dangerouslySetInnerHTML={{
           __html: `
-            console.log(\`
+            console.info(\`
 ██╗   ██╗██╗███████╗██╗████████╗ ██████╗ ██████╗    ██╗  ██╗██╗   ██╗
 ██║   ██║██║╚══███╔╝██║╚══██╔══╝██╔═══██╗██╔══██╗   ██║  ██║██║   ██║
 ██║   ██║██║  ███╔╝ ██║   ██║   ██║   ██║██████╔╝   ███████║██║   ██║

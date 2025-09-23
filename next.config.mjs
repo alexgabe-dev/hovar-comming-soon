@@ -30,7 +30,9 @@ const nextConfig = {
   },
   swcMinify: true,
   compiler: {
-    removeConsole: isProd, // console.log-ok eltávolítása prod-ban
+    removeConsole: isProd ? {
+      exclude: ['console.log'] // console.log-okat megtartjuk a reklám miatt
+    } : false,
   },
 
   // Security headerek
