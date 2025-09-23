@@ -25,11 +25,35 @@ const nextConfig = {
     if (!dev && !isServer) {
       // modern browsers only - no legacy transforms
       config.target = ['web', 'es2020']
+      
+      // Disable polyfills for modern browsers
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        // Disable Node.js polyfills
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+        stream: false,
+        url: false,
+        zlib: false,
+        http: false,
+        https: false,
+        assert: false,
+        os: false,
+        path: false,
+      }
     }
     return config
   },
   // transpile only for legacy browsers if needed
   transpilePackages: [],
+  // SWC compiler options for modern browsers
+  swcMinify: true,
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
 }
 
 export default nextConfig
