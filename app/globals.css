@@ -75,6 +75,46 @@ a {
   color: #000;
 }
 
+/* Custom pulse animations for status indicators - box shadow effect */
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 #ef4444;
+  }
+  100% {
+    box-shadow: 0 0 0 8px #ef444400;
+  }
+}
+
+@keyframes pulse-yellow {
+  0% {
+    box-shadow: 0 0 0 0 #eab308;
+  }
+  100% {
+    box-shadow: 0 0 0 8px #eab30800;
+  }
+}
+
+@keyframes pulse-gray {
+  0% {
+    box-shadow: 0 0 0 0 #6b7280;
+  }
+  100% {
+    box-shadow: 0 0 0 8px #6b728000;
+  }
+}
+
+.animate-pulse-red {
+  animation: pulse-red 1.5s ease-in-out infinite !important;
+}
+
+.animate-pulse-yellow {
+  animation: pulse-yellow 2s ease-in-out infinite !important;
+}
+
+.animate-pulse-gray {
+  animation: pulse-gray 2.5s ease-in-out infinite !important;
+}
+
 /* Disable smooth scrolling for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
