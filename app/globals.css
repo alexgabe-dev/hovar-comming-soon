@@ -112,7 +112,53 @@ a {
   animation: pulse-gray 2.5s ease-in-out infinite !important;
 }
 
-/* accessibility görgetések */
+/* Discord popup animációk - ezeket hozzáadtam a popup-hoz */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseDiscord {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(88, 101, 242, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(88, 101, 242, 0); /* discord színű pulzus */
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.5s ease-out; /* TODO: lehetne gyorsabb */
+}
+
+.animate-slide-in-bottom {
+  animation: slideInFromBottom 0.6s ease-out;
+}
+
+.animate-pulse-discord {
+  animation: pulseDiscord 2s ease-in-out infinite; /* FIX: lehetne finomabb */
+}
+
+/* accessibility görgetések - ha valaki nem akar animációt */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
