@@ -7,7 +7,7 @@ export const SocialButtons = () => {
     <div className="flex gap-6 items-center justify-center">
       {/* Instagram ikon - Hóvár SVG */}
       <a
-        href="https://instagram.com/hovar.egyesulet"
+        href="https://www.instagram.com/hovaregyesulet/"
         target="_blank"
         rel="noopener noreferrer"
         className="group relative w-6 h-6 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
@@ -46,7 +46,7 @@ export const SocialButtons = () => {
 
        {/* Facebook ikon - Hóvár SVG */}
        <a
-         href="https://facebook.com/hovar.egyesulet"
+         href="https://www.facebook.com/profile.php?id=61578197027665"
          target="_blank"
          rel="noopener noreferrer"
          className="group relative w-6 h-6 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
