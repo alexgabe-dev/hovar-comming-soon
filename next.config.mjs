@@ -39,8 +39,8 @@ const nextConfig = {
   async headers() {
     const cspBase = [
       "default-src 'self'",
-      // DEV: engedjük az inline scripteket és eval-t (webpack hot reload) PROD: tiltsuk
-      isProd ? "script-src 'self'" : "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      // DEV: engedjük az inline scripteket és eval-t (webpack hot reload) PROD: engedjük az inline scripteket a console banner miatt
+      isProd ? "script-src 'self' 'unsafe-inline'" : "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline'", // Tailwind miatt
       "img-src 'self' data:",
       "font-src 'self'",
