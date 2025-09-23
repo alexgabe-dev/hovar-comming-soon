@@ -192,14 +192,6 @@ export default function ComingSoonPage() {
           <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light mb-2">
             LEGYEN EGY TALÁLKOZÁSI PONT A KÁRPÁTALJAI MAGYAROK SZÁMÁRA.
           </p>
-          {/* logo - csak mobilon, középen nagyban */}
-          <div className="block sm:hidden mt-8">
-            <img 
-              src="/logo/hovar-logo-new.svg" 
-              alt="HÓVÁR logo" 
-              className="w-32 h-32 mx-auto opacity-20"
-            />
-          </div>
         </section>
       </main>
 
