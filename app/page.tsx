@@ -6,14 +6,92 @@ import { SocialButtons } from "./components/SocialButtons"
 export default function ComingSoonPage() {
   // current time state, frissítve 1s-ként
   const [currentTime, setCurrentTime] = useState("")
+  // location state - user város
+  const [userCity, setUserCity] = useState("") // loading state
+  // timezone state - user időzóna
+  const [userTimezone, setUserTimezone] = useState("Europe/Budapest") // fallback default
+  // loading state - location detection
+  const [isLocationLoading, setIsLocationLoading] = useState(true)
+  // cache refresh function
+  const refreshLocation = () => {
+    localStorage.removeItem('userLocation')
+    localStorage.removeItem('locationCacheTime')
+    setIsLocationLoading(true)
+    // újra futtatjuk a location detection-t
+    window.location.reload()
+  }
 
   useEffect(() => {
-    // init set time - fixme: hardcoded local format
-    setCurrentTime(new Date().toLocaleTimeString("hu-HU"))
+    // init set time - dynamic timezone
+    const updateTime = () => {
+      setCurrentTime(new Date().toLocaleTimeString("hu-HU", { 
+        timeZone: userTimezone,
+        hour12: false 
+      }))
+    }
+    
+    updateTime()
     
     // interval update - cleanup fontos!
-    const timer = setInterval(() => setCurrentTime(new Date().toLocaleTimeString("hu-HU")), 1000)
+    const timer = setInterval(updateTime, 1000)
     return () => clearInterval(timer) // cleanup timer - no leak plz 👍
+  }, [userTimezone])
+
+  // IP alapú helymeghatározás - gyors és cache-elt
+  useEffect(() => {
+    const getLocationByIP = async () => {
+      // cache ellenőrzése - localStorage
+      const cachedLocation = localStorage.getItem('userLocation')
+      const cacheTime = localStorage.getItem('locationCacheTime')
+      const now = Date.now()
+      
+      // ha van cache és nem régi (10 perc), használjuk
+      if (cachedLocation && cacheTime && (now - parseInt(cacheTime)) < 600000) {
+        const data = JSON.parse(cachedLocation)
+        setUserCity(data.city || "BUDAPEST")
+        setUserTimezone(data.timezone || "Europe/Budapest")
+        setIsLocationLoading(false)
+        return
+      }
+
+      try {
+        // timeout-ot adunk a fetch-nek
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 3000) // 3s timeout
+        
+        // gyorsabb API - ipinfo.io
+        const response = await fetch('https://ipinfo.io/json', {
+          signal: controller.signal
+        })
+        clearTimeout(timeoutId)
+        
+        const data = await response.json()
+        
+        // város beállítása
+        const city = data.city || data.region || data.country || "BUDAPEST"
+        setUserCity(city.toUpperCase())
+        
+        // timezone beállítása
+        if (data.timezone) {
+          setUserTimezone(data.timezone)
+        }
+        
+        // cache-eljük az adatokat
+        localStorage.setItem('userLocation', JSON.stringify({
+          city: city,
+          timezone: data.timezone
+        }))
+        localStorage.setItem('locationCacheTime', now.toString())
+        
+      } catch (error) {
+        console.log("IP location failed:", error)
+        setUserCity("BUDAPEST") // fallback ha hiba van
+      } finally {
+        setIsLocationLoading(false) // loading befejezve
+      }
+    }
+
+    getLocationByIP()
   }, [])
 
   return (
@@ -23,8 +101,22 @@ export default function ComingSoonPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between h-14 sm:h-16 px-4 sm:px-8">
           {/* brand name - responsive text size */}
           <span className="text-xs sm:text-sm font-bold tracking-wider">HÓVÁR_EGYESÜLET</span>
-          {/* live time + location - fixme: hardcoded BUDAPEST */}
-          <span className="text-[10px] sm:text-xs tracking-wider opacity-60">{currentTime} | BUDAPEST</span>
+          {/* live time + location - dynamic user city */}
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] sm:text-xs tracking-wider opacity-60">
+              {currentTime} | {isLocationLoading ? "..." : userCity}
+            </span>
+            {/* refresh button - csak desktop-on és akkor látható ha van város */}
+            {userCity && !isLocationLoading && (
+              <button
+                onClick={refreshLocation}
+                className="hidden sm:block text-[8px] sm:text-[10px] opacity-40 hover:opacity-80 transition-opacity cursor-pointer"
+                title="Helymeghatározás frissítése"
+              >
+                ↻
+              </button>
+            )}
+          </div>
         </div>
       </header>
 
