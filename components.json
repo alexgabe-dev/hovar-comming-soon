@@ -1,21 +1,21 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
-  "rsc": true,
-  "tsx": true,
+  "style": "default", // shadcn/ui style
+  "rsc": true, // React Server Components
+  "tsx": true, // TypeScript support
   "tailwind": {
-    "config": "tailwind.config.ts",
-    "css": "app/globals.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
+    "config": "tailwind.config.ts", // tailwind config path
+    "css": "app/globals.css", // global CSS file
+    "baseColor": "neutral", // base color scheme
+    "cssVariables": true, // use CSS variables
+    "prefix": "" // no prefix
   },
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "components": "@/components", // components path
+    "utils": "@/lib/utils", // utils path
+    "ui": "@/components/ui", // UI components path
+    "lib": "@/lib", // lib path
+    "hooks": "@/hooks" // hooks path
   },
-  "iconLibrary": "lucide"
+  "iconLibrary": "lucide" // icon library
 }

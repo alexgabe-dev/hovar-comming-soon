@@ -1,27 +1,30 @@
 {
   "compilerOptions": {
+    // lib config - DOM + modern JS
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "target": "ES6",
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "allowJs": true, // allow JS files
+    "target": "ES6", // compile target
+    "skipLibCheck": true, // skip lib type checking - faster builds
+    "strict": true, // strict type checking
+    "noEmit": true, // no output files - Next.js handles this
+    "esModuleInterop": true, // better module interop
+    "module": "esnext", // module system
+    "moduleResolution": "bundler", // modern resolution
+    "resolveJsonModule": true, // import JSON files
+    "isolatedModules": true, // better tree shaking
+    "jsx": "preserve", // let Next.js handle JSX
+    "incremental": true, // faster incremental builds
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Next.js TypeScript plugin
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"] // path mapping - @ alias for root
     }
   },
+  // include patterns - what files to compile
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  // exclude patterns - what to ignore
   "exclude": ["node_modules"]
 }
