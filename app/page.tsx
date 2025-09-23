@@ -1,7 +1,8 @@
 "use client"
 import { useState, useEffect } from "react"
+import { SocialButtons } from "./components/SocialButtons"
 
-// @hidden-author: Alex Gabe (vizitor.hu)
+// @hidden-author: Gábor Sándor (vizitor.hu)
 export default function ComingSoonPage() {
   // current time state, frissítve 1s-ként
   const [currentTime, setCurrentTime] = useState("")
@@ -32,17 +33,17 @@ export default function ComingSoonPage() {
         <div
           className="absolute inset-0"
           style={{
-            // grid pattern - CSS magic ✨
+            // grid pattern
             backgroundImage: `
               linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
             `,
-            backgroundSize: "50px 50px", // grid cell size
+            backgroundSize: "50px 50px", // grid cella size
           }}
         />
       </div>
 
-      {/* Main content wrapper */}
+      {/* Main content wrapper a homepagehez */}
       <main className="flex-1 flex flex-col pt-32 pb-40 sm:pb-0">
         {/* Hero Section - main content area */}
         <section className="flex-1 flex flex-col items-center justify-center px-4 sm:px-8">
@@ -52,7 +53,7 @@ export default function ComingSoonPage() {
               <div className="text-8xl sm:text-7xl md:text-9xl font-black">COMING SOON</div>
               {/* status indicators - mobile/desktop responsive */}
               <div className="flex flex-row flex-wrap justify-center gap-4 mt-20">
-                {/* active dev status - always visible */}
+                {/* active dev státusz - always visible */}
                 <div className="flex items-center gap-2 text-sm sm:text-base mt-16 sm:mt-0">
                   <span className="w-3 h-3 bg-red-500 inline-block rounded-sm animate-pulse-red" />
                   <span className="tracking-wider">FEJLESZTÉS_ALATT</span>
@@ -72,7 +73,7 @@ export default function ComingSoonPage() {
           </div>
         </section>
 
-        {/* Mission Section - organization purpose */}
+        {/* Mission Section - hovar pküldetes */}
         <section className="w-full max-w-3xl mx-auto text-center mt-8 px-4">
           {/* section label - wide letter spacing */}
           <div className="text-xs tracking-[0.3em] text-gray-400 mb-2">[KÜLDETÉSÜNK]</div>
@@ -89,7 +90,7 @@ export default function ComingSoonPage() {
           <div className="text-center">
             {/* contact section header */}
             <div className="font-bold tracking-wider mb-1 text-sm sm:text-base">KAPCSOLAT</div>
-            {/* email link with hover effects - fancy underline anim */}
+            {/* email link with hovar(xd) effects - fancy underline anim */}
             <a
               href="mailto:info@hovar.hu"
               className="font-mono text-xs sm:text-sm break-all relative transition-all duration-300 ease-out hover:text-red-500 hover:scale-105 focus-visible:outline-none group"
@@ -105,6 +106,10 @@ export default function ComingSoonPage() {
           <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-black text-center">
             <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6 text-[10px] sm:text-xs opacity-60">
               <div className="font-mono tracking-wider">© 2025 HÓVÁR_EGYESÜLET</div>
+            </div>
+            {/* Social media ikonok - finom elhelyezés */}
+            <div className="mt-4 sm:mt-6">
+              <SocialButtons />
             </div>
           </div>
         </div>
