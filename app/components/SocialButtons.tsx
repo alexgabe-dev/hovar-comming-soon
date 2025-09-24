@@ -46,6 +46,14 @@ export const SocialButtons = () => {
             }}
           />
         </div>
+        
+        {/* hover tooltip - csak desktop */}
+        <div className="hidden sm:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none z-50 group-hover:translate-y-0 translate-y-2">
+          <div className="bg-black border-2 border-white px-3 py-2 font-mono text-xs tracking-wider whitespace-nowrap relative transform transition-all duration-500 ease-out group-hover:scale-100 scale-95 group-hover:rotate-0 rotate-1">
+            <span className="text-white transition-all duration-500 ease-out group-hover:text-white text-gray-300">KÖVESS MINKET INSTAGRAMON!</span>
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white transition-all duration-500 ease-out group-hover:translate-y-0 translate-y-1"></div>
+          </div>
+        </div>
       </a>
 
        <a
@@ -84,6 +92,14 @@ export const SocialButtons = () => {
              }}
            />
          </div>
+         
+         {/* hover tooltip - csak desktop */}
+         <div className="hidden sm:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none z-50 group-hover:translate-y-0 translate-y-2">
+           <div className="bg-black border-2 border-white px-3 py-2 font-mono text-xs tracking-wider whitespace-nowrap relative transform transition-all duration-500 ease-out group-hover:scale-100 scale-95 group-hover:rotate-0 rotate-1">
+             <span className="text-white transition-all duration-500 ease-out group-hover:text-white text-gray-300">KÖVESS MINKET FACEBOOKON!</span>
+             <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white transition-all duration-500 ease-out group-hover:translate-y-0 translate-y-1"></div>
+           </div>
+         </div>
        </a>
 
        <a
@@ -105,7 +121,7 @@ export const SocialButtons = () => {
              }}
            />
          </div>
-         {/* apply form zöld overlay - zöld mert jelentkezés */}
+         {/* apply form zöld overlay */}
          <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
            <div 
              className="w-full h-full"
@@ -132,7 +148,7 @@ export const SocialButtons = () => {
          </div>
        </a>
 
-       {/* Discord button - ez az új, popup-pal */}
+       {/* Discord button - új popup */}
        <button
          onClick={() => setIsDiscordPopupOpen(true)} // TODO: lehetne debounce ha gyorsan kattintanak
          className="group relative w-6 h-6 transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
@@ -146,11 +162,11 @@ export const SocialButtons = () => {
              height={24}
              className="w-full h-full transition-all duration-300"
              style={{
-               filter: 'none' // discord icon már jó így
+               filter: 'none' // discord icon már jó így(?)
              }}
            />
          </div>
-         {/* Discord lila overlay - discord színe */}
+         {/* Discord lila overlay */}
          <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
            <div 
              className="w-full h-full"
