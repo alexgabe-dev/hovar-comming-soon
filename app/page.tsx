@@ -148,7 +148,7 @@ export default function ComingSoonPage() {
                 </div>
                 <div className="hidden sm:flex items-center gap-2 text-sm sm:text-base opacity-70">
                   <span className="w-3 h-3 bg-gray-500 inline-block rounded-sm animate-pulse-gray" />
-                  <span className="tracking-wider">2025_Q3</span>
+                  <span className="tracking-wider">2026_Q1</span>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@ export default function ComingSoonPage() {
           </div>
           <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-black text-center">
             <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6 text-[10px] sm:text-xs opacity-60">
-              <div className="font-mono tracking-wider">© 2025 HÓVÁR_EGYESÜLET</div>
+              <div className="font-mono tracking-wider">© 2026 HÓVÁR_EGYESÜLET</div>
             </div>
             <div className="mt-4 sm:mt-6">
               <SocialButtons />
@@ -191,10 +191,10 @@ export default function ComingSoonPage() {
 
       <div>
         <div className="block sm:hidden fixed right-4 bottom-4 text-[80px] font-black opacity-10 pointer-events-none select-none z-0">
-          2025
+          2026
         </div>
         <div className="hidden sm:block fixed top-1/2 right-8 transform -translate-y-1/2 text-[120px] md:text-[200px] font-black opacity-5 pointer-events-none select-none z-0">
-          2025
+          2026
         </div>
       </div>
     </div>
